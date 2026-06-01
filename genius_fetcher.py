@@ -10,6 +10,8 @@ def clean_lyrics(lyrics):
     return lyrics.strip()
 
 def fetch_lyrics(song_title, artist=None):
+    if not song_title or not song_title.strip():
+        return None
     try:
         song = genius.search_song(song_title, artist or "", get_full_info=False)
         if not song:
@@ -17,8 +19,18 @@ def fetch_lyrics(song_title, artist=None):
         return {
             "title": song.title,
             "artist": song.artist,
-            "lyrics": song.lyrics
+            "lyrics": clean_lyrics(song.lyrics)
         }
     except Exception as e:
         print(f"Error fetching lyrics: {e}")
         return None
+
+def get_lyrics_for_classifier(song_title, artist=None):
+    result = fetch_lyrics(song_title, artist)
+    if not result:
+        return None
+    return {
+        "title": result["title"],
+        "artist": result["artist"],
+        "text": result["lyrics"]
+    }
