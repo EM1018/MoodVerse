@@ -1,7 +1,13 @@
 import lyricsgenius
+import re
 
 GENIUS_TOKEN = "Veg8X7Xj1-8gdBgERi5UI01EZQTP8Q-5ZBd5tfn_gAMQcQORbVFmCv5TwZZwl3kB"
 genius = lyricsgenius.Genius(GENIUS_TOKEN, timeout=15)
+
+def clean_lyrics(lyrics):
+    lyrics = re.sub(r'\[.*?\]', '', lyrics)
+    lyrics = re.sub(r'\n{3,}', '\n\n', lyrics)
+    return lyrics.strip()
 
 def fetch_lyrics(song_title, artist=None):
     try:
@@ -16,11 +22,3 @@ def fetch_lyrics(song_title, artist=None):
     except Exception as e:
         print(f"Error fetching lyrics: {e}")
         return None
-
-if __name__ == "__main__":
-    result = fetch_lyrics("Bohemian Rhapsody", "Queen")
-    if result:
-        print(f"{result['title']} by {result['artist']}")
-        print(result['lyrics'][:300])
-    else:
-        print("Not found")
