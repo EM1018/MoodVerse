@@ -1,13 +1,13 @@
 const BASE_URL = 'http://localhost:8000';
 
-// TODO: replace mock with → POST ${BASE_URL}/lyrics
-export async function fetchLyrics(_title, _artist) {
-  await sleep(900);
-  return {
-    title: "Flightless Bird, American Mouth",
-    artist: "Iron & Wine",
-    text: "I was a quick wet boy\nDiving too deep for coins\nAll of your street light eyes\nWide on my plastic toys..."
-  };
+export async function fetchLyrics(title, artist) {
+  const res = await fetch(`${BASE_URL}/lyrics`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title, artist }),
+  });
+  if (!res.ok) return null;
+  return res.json();
 }
 
 // TODO: replace mock with → POST ${BASE_URL}/classify
