@@ -5,7 +5,6 @@ from sklearn.model_selection import train_test_split
 
 if __name__ == "__main__":
     df = pd.read_csv("./data/cano_with_lyrics.csv")
-    print(df.loc[1,"lyrics"])
 
     # 80/10/10 split
     train, dev_and_test = train_test_split(df, test_size=0.2, stratify=df["mood"], random_state=16)
