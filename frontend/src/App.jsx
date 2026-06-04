@@ -11,10 +11,12 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [loadingMsg, setLoadingMsg] = useState('')
   const [inputKey, setInputKey] = useState(0)
+  const [songError, setSongError] = useState(null)
 
   async function handleClassify({ mode, text, title, artist }) {
     setLoading(true)
     setResults(null)
+    setSongError(null)
 
     try {
       let textToClassify = ''
@@ -22,6 +24,10 @@ export default function App() {
       if (mode === 'song') {
         setLoadingMsg('Fetching lyrics… via Genius API')
         const data = await fetchLyrics(title, artist)
+        if (!data) {
+          setSongError("Couldn't find that song. Try a different title or adding an artist.")
+          return
+        }
         textToClassify = data.text
         setLyrics(data.text)
         setSongInfo({ title: data.title, artist: data.artist })
@@ -41,6 +47,10 @@ export default function App() {
     }
   }
 
+  function handleClearError() {
+    setSongError(null)
+  }
+
   function handleReset() {
     setResults(null)
     setLyrics('')
@@ -53,6 +63,7 @@ export default function App() {
     setResults(null)
     setLyrics('')
     setSongInfo(null)
+    setSongError(null)
   }
 
   return (
@@ -82,6 +93,8 @@ export default function App() {
           onClassify={handleClassify}
           loading={loading}
           loadingMsg={loadingMsg}
+          songError={songError}
+          onClearError={handleClearError}
         />
 
         {/* Results */}

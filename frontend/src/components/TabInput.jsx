@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function TabInput({ activeTab, onTabChange, onClassify, loading, loadingMsg }) {
+export default function TabInput({ activeTab, onTabChange, onClassify, loading, loadingMsg, songError, onClearError }) {
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
   const [artist, setArtist] = useState('')
@@ -52,18 +52,21 @@ export default function TabInput({ activeTab, onTabChange, onClassify, loading, 
           <div className="flex gap-3">
             <input
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => { setTitle(e.target.value); onClearError?.() }}
               placeholder="Song title"
               className="flex-[3] bg-neutral-800 text-white placeholder-neutral-500 rounded-lg px-4 py-3 text-sm border border-neutral-700 focus:outline-none focus:border-neutral-500"
             />
             <input
               value={artist}
-              onChange={(e) => setArtist(e.target.value)}
+              onChange={(e) => { setArtist(e.target.value); onClearError?.() }}
               placeholder="Artist (optional)"
               className="flex-[1] bg-neutral-800 text-white placeholder-neutral-500 rounded-lg px-4 py-3 text-sm border border-neutral-700 focus:outline-none focus:border-neutral-500"
             />
           </div>
-          <p className="text-neutral-500 text-xs">Adding an artist helps find the right song.</p>
+          {songError
+            ? <p className="text-red-400 text-xs">{songError}</p>
+            : <p className="text-neutral-500 text-xs">Adding an artist helps find the right song.</p>
+          }
         </div>
       )}
 
