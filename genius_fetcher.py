@@ -5,6 +5,8 @@ GENIUS_TOKEN = "Veg8X7Xj1-8gdBgERi5UI01EZQTP8Q-5ZBd5tfn_gAMQcQORbVFmCv5TwZZwl3kB
 genius = lyricsgenius.Genius(GENIUS_TOKEN, timeout=15)
 
 def clean_lyrics(lyrics):
+    if "Read More" in lyrics:
+        lyrics = lyrics[lyrics.index("Read More") + len("Read More"):]
     lyrics = re.sub(r'\[.*?\]', '', lyrics)
     lyrics = re.sub(r'\n{3,}', '\n\n', lyrics)
     return lyrics.strip()
