@@ -1,0 +1,7 @@
+@"
+__pycache__/
+*.pyc
+experiments/bert/
+exported/*.joblib
+exported/*.bin
+"@ | Out-File -FilePath models/.gitignore -Encoding utf8

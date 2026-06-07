@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-06-04T18:34:39.875695",
+  "model": "bert",
+  "params": {
+    "model": "distilbert-base-uncased",
+    "epochs": 3,
+    "lr": 2e-05
+  },
+  "metrics": {
+    "eval_loss": 0.9293889403343201,
+    "eval_accuracy": 0.6414141414141414,
+    "eval_f1_macro": 0.6368087557603686,
+    "eval_f1_angry": 0.75,
+    "eval_f1_happy": 0.6236559139784946,
+    "eval_f1_relaxed": 0.6021505376344086,
+    "eval_f1_sad": 0.5714285714285714,
+    "eval_runtime": 1.1077,
+    "eval_samples_per_second": 178.754,
+    "eval_steps_per_second": 6.32,
+    "epoch": 3.0
+  }
+}
