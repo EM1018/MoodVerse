@@ -3,7 +3,7 @@
 ## Tasks per person:
 * Tyler - Data collection & preprocessing
 * Ethan - Model training & evaluation
-* Nuha - API integration & backend
+* Nuha - API integration & backend & poster/slideshow
 * Elian - Frontend & UI
 
 ---
