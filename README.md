@@ -3,13 +3,8 @@
 ## Tasks per person:
 * Tyler - Data collection & preprocessing
 * Ethan - Model training & evaluation
-<<<<<<< Updated upstream
 * Nuha - API integration & backend & poster/slideshow
-* Elian - Frontend & UI
-=======
-* Nuha - API integration & backend
 * Elian - Frontend/Bit of Backend & UI/UX
->>>>>>> Stashed changes
 
 ---
 
@@ -71,7 +66,6 @@ Endpoints:
 The bridge between the frontend and backend
 Functions: 
 * `fetchLyrics(title, artist)`: uses fetch() to make a request to the backend, passing in both the title and artist. Both parameters are used to obtain the lyrics of a song title. Note that the artist parameter is made optional for the client.
-
 * `classifyMood(text)`: uses fetch() to make a request to the backend, passing in only text (lyrics), which is used as input for the model to perform it's classification.
 
 `public/src/components`
