@@ -34,15 +34,15 @@ Built the Genius lyrics pipeline using the `lyricsgenius` library. Given a song 
 ### genius_fetcher.py (Nuha)
 Purpose: Fetches and cleans song lyrics from the Genius API
 Functions:
-* `fetch_lyrics(song_title, artist)` — searches Genius and returns title, artist, and cleaned lyrics
-* `clean_lyrics(lyrics)` — strips `[Intro]`/`[Verse]` headers and Genius contributor metadata
-* `get_lyrics_for_classifier(song_title, artist)` — wrapper that returns `{"title", "artist", "text"}` ready for the model
+* `fetch_lyrics(song_title, artist)` - searches Genius and returns title, artist, and cleaned lyrics
+* `clean_lyrics(lyrics)` - strips `[Intro]`/`[Verse]` headers and Genius contributor metadata
+* `get_lyrics_for_classifier(song_title, artist)` - wrapper that returns `{"title", "artist", "text"}` ready for the model
 
 ### server.py (Nuha)
 Purpose: FastAPI backend connecting the frontend to the lyrics fetcher and classifier
 Endpoints:
-* `POST /lyrics` — takes `{title, artist}`, returns cleaned lyrics or 404 if not found
-* `POST /classify` — takes `{text}`, returns mood prediction and confidence scores
+* `POST /lyrics` - takes `{title, artist}`, returns cleaned lyrics or 404 if not found
+* `POST /classify` - takes `{text}`, returns mood prediction and confidence scores
 
 ### build_dataset.py (Tyler)
 *To be filled in by Tyler.*
