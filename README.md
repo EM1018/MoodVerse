@@ -21,7 +21,7 @@ note: this is a development server, not a production server
 ## Team Discussion - Implementation Decisions
 
 **Tyler (Data):**
-*To be filled in by Tyler.*
+Sourced, cleaned, and constructed the dataset. Our dataset was constructed based on the MoodyLyrics4Q by Erion Çano [1]. It contains 2000 songs labeled with one of the 4 categories based on Russell's model (happy, sad, angry, relaxed). Dataset was constructed with scripts to avoid unapproved distribution of copyrighted lyrics.
 
 **Ethan (Model):**
 *To be filled in by Ethan.*
@@ -50,10 +50,13 @@ Endpoints:
 * `POST /classify` - takes `{text}`, returns mood prediction and confidence scores
 
 ### build_dataset.py (Tyler)
-*To be filled in by Tyler.*
+Purpose: Gather the lyrics and construct the complete dataset
+Reads the song titles and associated artists from the cleaned Çano dataset. Lyrics are fetched using the genius fetcher and saved to `./data/cano_with_lyrics.csv`. Any songs that cannot be found are saved to `./data/missing_lyrics.txt`.
+
 
 ### split_dataset.py (Tyler)
-*To be filled in by Tyler.*
+Purpose: Split dataset into train, dev, and test sets.
+Uses sklearn's train_test_split to create an 80/10/10 split for the data. Split dataset is stored in `./data/train_with_lyrics.csv`, `./data/dev_with_lyrics.csv`, and `./data/test_with_lyrics.csv`.
 
 ### baseline.py (Ethan)
 *To be filled in by Ethan.*
@@ -87,3 +90,9 @@ Provides the input from the frontend to the model so that it can classify the da
 ## Results
 
 *To be filled in by Ethan.*
+
+---
+
+## References
+
+[1] Çano, E., & Morisio, M. (2019). Word Embeddings for Sentiment Analysis: A Comprehensive Empirical Survey. ArXiv, abs/1902.00753.
