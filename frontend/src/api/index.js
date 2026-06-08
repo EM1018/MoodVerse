@@ -11,9 +11,9 @@ export async function fetchLyrics(title, artist) {
 }
 
 // TODO: replace mock with → POST ${BASE_URL}/classify
-export async function classifyMood(_text) {
+export async function classifyMood(text) {
   await sleep(700);
-  return {
+  /*return {
     mood: "melancholic",
     confidence: 0.87,
     scores: {
@@ -24,7 +24,14 @@ export async function classifyMood(_text) {
       angry: 0.08,
       happy: 0.03
     }
-  };
+  };*/ 
+  const res = await fetch(`${BASE_URL}/classify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'Application/JSON'},
+      body: JSON.stringify({text})
+  })
+  if (!res.ok) return null; 
+  return res.json();
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
