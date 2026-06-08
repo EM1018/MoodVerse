@@ -13,7 +13,7 @@
 
 ---
 
-## Team Discussion — Implementation Decisions
+## Team Discussion - Implementation Decisions
 
 **Tyler (Data):**
 *To be filled in by Tyler.*
