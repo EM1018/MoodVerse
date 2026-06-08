@@ -11,7 +11,7 @@ from genius_fetcher import get_lyrics_for_classifier
 from predictor import MoodPredictor
 
 # the actual model file and the object 
-MODEL_PATH = Path(__file__).parent / "models" / "experiments" / "best"
+MODEL_PATH = Path(__file__).parent / "models" / "experiments" / "bert" / "best"
 predictor = MoodPredictor.from_bert(str(MODEL_PATH))
 
 app = FastAPI()
