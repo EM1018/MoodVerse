@@ -1,10 +1,10 @@
-# MoodVerse — CSE 143 Final Project — Team 16
+# MoodVerse - CSE 143 Final Project - Team 16
 
 ## Tasks per person:
-* Tyler — Data collection & preprocessing
-* Ethan — Model training & evaluation
-* Nuha — API integration & backend
-* Elian — Frontend & UI
+* Tyler - Data collection & preprocessing
+* Ethan - Model training & evaluation
+* Nuha - API integration & backend
+* Elian - Frontend & UI
 
 ---
 
@@ -15,16 +15,16 @@
 
 ## Team Discussion — Implementation Decisions
 
-**Tyler (P1 — Data):**
+**Tyler (Data):**
 *To be filled in by Tyler.*
 
-**Ethan (P2 — Model):**
+**Ethan (Model):**
 *To be filled in by Ethan.*
 
-**Nuha (P3 — API Integration):**
+**Nuha (API Integration):**
 Built the Genius lyrics pipeline using the `lyricsgenius` library. Given a song title and artist, it fetches the lyrics, cleans them up (removes section headers like `[Intro]`, contributor info, and other Genius metadata), and returns plain text ready to be classified. Also set up a FastAPI backend with two endpoints, one to fetch lyrics by song title and one to run mood classification, connected to the frontend.
 
-**Elian (P4 — Frontend):**
+**Elian (Frontend):**
 *To be filled in by Elian.*
 
 ---
