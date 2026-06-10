@@ -16,6 +16,10 @@
 
 note: this is a development server, not a production server
 
+* The model: 
+    - unzip `bert_best.zip`
+    - place contents in the following path: "models" / "experiments" / "bert" / "best"
+    - done!
 ---
 
 ## Team Discussion - Implementation Decisions
