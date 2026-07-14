@@ -1,7 +1,13 @@
 import lyricsgenius
 import re
 
-GENIUS_TOKEN = "Veg8X7Xj1-8gdBgERi5UI01EZQTP8Q-5ZBd5tfn_gAMQcQORbVFmCv5TwZZwl3kB"
+
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+GENIUS_TOKEN = os.getenv("GENIUS_TOKEN")
+
 genius = lyricsgenius.Genius(GENIUS_TOKEN, timeout=15)
 
 def clean_lyrics(lyrics):
