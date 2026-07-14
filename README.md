@@ -6,7 +6,7 @@ A mood classifier for lyrics and text. Paste any text or look up a song title an
 
 moodverse classifying "Can't stop the feeling" by Justin Timberlake:
 
-![alt text](image.png)
+![alt text](demo_ss.png)
 ---
 
 ## What It Does
